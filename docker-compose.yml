@@ -1,0 +1,44 @@
+version: '3.1'
+
+services:
+  ghost:
+    image: ghost:5-alpine
+    restart: always
+    ports:
+      - 2368:2368
+    environment:
+      # This url variable is important for Ghost to know where it's being accessed from
+      url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: root_password
+      database__connection__database: ghost
+      # Mail Configuration (Required for Login/Invites)
+      # Option 1: Mailgun (Recommended by Ghost)
+      # mail__transport: SMTP
+      # mail__options__service: Mailgun
+      # mail__options__auth__user: postmaster@your-domain.com
+      # mail__options__auth__pass: your-mailgun-password
+      # Option 2: Generic SMTP (e.g., Gmail, Amazon SES)
+      # mail__transport: SMTP
+      # mail__options__host: smtp.gmail.com
+      # mail__options__port: 587
+      # mail__options__auth__user: your-email@gmail.com
+      # mail__options__auth__pass: your-app-password
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  ghost_content:
+  db_data:
