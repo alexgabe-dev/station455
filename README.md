@@ -6,13 +6,6 @@ Station445 is an ultra-minimalist, cosmic horror/sci-fi blog platform broadcasti
 
 ![Station445 Header](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop)
 
-## 📡 Transmission Status
-
-- **Status:** ONLINE
-- **Protocol:** SECURE
-- **Frequency:** 445.00 MHz
-- **Location:** Sector 7G (Unknown Coordinates)
-
 ## 🌌 Overview
 
 Station445 is built with modern web technologies to deliver a high-performance, immersive experience. The design philosophy focuses on "The Void" - utilizing deep blacks, subtle animations, and specific typography to evoke a sense of isolation and mystery.
